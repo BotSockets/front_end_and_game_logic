@@ -1,0 +1,75 @@
+#toy-robot-hackathon ::-webkit-scrollbar {
+  -webkit-appearance: none;
+  width: 7px; }
+#toy-robot-hackathon ::-webkit-scrollbar-thumb {
+  border-radius: 4px;
+  background-color: lightgray;
+  -webkit-box-shadow: 0 0 1px rgba(255, 255, 255, 0.5); }
+#toy-robot-hackathon h2 {
+  margin: 0; }
+#toy-robot-hackathon h4 {
+  margin: 0; }
+#toy-robot-hackathon h5 {
+  margin: 0; }
+#toy-robot-hackathon h6 {
+  margin: 0; }
+#toy-robot-hackathon ul {
+  padding-left: 15px; }
+#toy-robot-hackathon #videoCanvas {
+  /* Always stretch the canvas to 640x480, regardless of its
+  internal size. */
+  width: 640px;
+  height: 480px; }
+#toy-robot-hackathon .container {
+  width: 940px; }
+#toy-robot-hackathon .main-container {
+  background-color: #eee;
+  border-radius: 6px;
+  margin-top: 15px;
+  padding: 45px; }
+  #toy-robot-hackathon .main-container .section-container {
+    background-color: white;
+    border-radius: 6px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    margin-bottom: 15px;
+    padding: 15px 30px; }
+    #toy-robot-hackathon .main-container .section-container .about-header {
+      margin-bottom: 5px; }
+    #toy-robot-hackathon .main-container .section-container .about-description {
+      margin-bottom: 15px; }
+#toy-robot-hackathon #section-game .game-section {
+  background-color: white;
+  border: 1px solid #ddd; }
+#toy-robot-hackathon #section-game #game-board {
+  background-color: white;
+  border-radius: 6px;
+  margin: 10px 0;
+  overflow: hidden; }
+  #toy-robot-hackathon #section-game #game-board iframe {
+    margin: -8px; }
+  #toy-robot-hackathon #section-game #game-board .game-point {
+    border: 1px solid black;
+    height: 50px;
+    width: 50px;
+    display: inline-block;
+    vertical-align: top; }
+#toy-robot-hackathon #commands-container button {
+  margin-bottom: 5px;
+  width: 100%; }
+#toy-robot-hackathon #commands-container textarea {
+  background-color: black;
+  border-radius: 6px;
+  color: white;
+  height: 247px;
+  margin: 10px 0;
+  overflow-y: scroll;
+  padding: 10px 20px;
+  width: 100%; }
+#toy-robot-hackathon #commands-container #player-command-count-container {
+  margin-bottom: 5px; }
+#toy-robot-hackathon #commands-container #commands-buttons-container .button-container {
+  display: inline-block;
+  width: 32%; }
+
+/*# sourceMappingURL=hackathon.css.map */

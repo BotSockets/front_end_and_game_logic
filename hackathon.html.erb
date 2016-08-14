@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+	  <title>Toy Robot Simulator</title>
+		<!-- Latest compiled and minified CSS Bootstrap -->
+	  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+	  <% unless Rails.env.test? %>
+	    <%= stylesheet_link_tag    'application', media: 'all' %>
+	  <% end %>
+	  <%= javascript_include_tag 'application' %>
+	  <%= csrf_meta_tags %>
+
+	  <meta charset="utf-8">
+	  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	  <meta name="viewport" content="width=device-width, initial-scale=1">
+	  <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+	</head>
+
+	<body>
+
+		<div id="toy-robot-hackathon">
+			<div class="container">
+				<div class="row">
+					<div class="col-xs-12">
+
+						<div class="main-container">
+
+							<div class="row">
+								<div class="col-xs-12">
+									<div class="section-container">
+							    	<div class="header-title">
+							    		<h2>Toy Robot Simulator</h2>
+							    	</div>
+							  		<div class="header-detail">
+							  			Winter Hackathon 2016 @ QUT
+							  		</div>
+							    </div>
+								</div>
+							</div>
+
+							<div class="row">
+								<div class="col-xs-5">
+
+									<div class="section-container" id="commands-container">
+										<div class="about-header">
+											<h4>
+												Commands Centre
+											</h4>
+										</div>
+										<div id="commands-text-area-container">
+											<textarea id="commands-textarea" disabled>
+											</textarea>
+										</div>
+										<div id="player-command-count-container">
+											<h5>
+												Command Count: <span id="player-command-count">
+													0
+												</span>
+											</h5>
+										</div>
+										<div id="commands-buttons-container">
+											
+											<div class ="button-container">
+												<button class="btn btn-default" id="clear">
+													Clear
+												</button>
+											</div>
+
+											<div class="button-container">
+												<button class="btn btn-primary" id="forwards">
+													Forwards
+												</button>
+											</div>
+
+											<div class="button-container">
+												<button class="btn btn-success" id="submit">
+													Submit
+												</button>
+											</div>
+
+											<div class="button-container">
+												<button class="btn btn-primary" id="left">
+													Left
+												</button>
+											</div>
+
+											<div class="button-container">
+												<button class="btn btn-primary" id="back">
+													Back
+												</button>
+											</div>
+
+											<div class="button-container">
+												<button class="btn btn-primary" id="right">
+													Right
+												</button>
+											</div>
+
+										</div>
+									</div>
+
+									<div class="section-container" id="instructions-and-output">
+										<div class="about-header">
+											<h4>
+												Instructions
+											</h4>
+										</div>
+										<div class="about-description">
+											<ul>
+												<li>
+													<b>PLACE X,Y,F</b>
+												</li>
+												<li>
+													PLACE will put the toy robot on the table in position X,Y and facing NORTH, SOUTH, EAST or WEST.
+												</li>
+												<li>
+													The origin (0,0) can be considered to be the SOUTH WEST most corner.
+												</li>
+												<li>
+													The first valid command to the robot is a PLACE command, after that, any sequence of commands may be issued, in any order, including another PLACE command. The application should discard all commands in the sequence until a valid PLACE command has been executed.
+												</li>
+												<br>
+												<li>
+													<b>MOVE</b>
+												</li>
+												<li>
+													MOVE will move the toy robot one unit forward in the direction it is currently facing.
+												</li>
+												<br>
+												<li>
+													<b>LEFT / RIGHT</b>
+												</li>
+												<li>
+													LEFT and RIGHT will rotate the robot 90 degrees in the specified direction without changing the position of the robot.
+												</li>
+												<br>
+												<li>
+													<b>REPORT</b>
+												</li>
+												<li>
+													REPORT will announce the X,Y and F of the robot. This can be in any form, but standard output is sufficient.
+												</li>
+												<br>
+												<li>
+													<b>
+														A robot that is not on the table can choose the ignore the MOVE, LEFT, RIGHT and REPORT commands.
+													</b>
+												</li>
+											</ul>
+										</div>
+									</div>
+								</div>
+
+								<div class="col-xs-7">
+
+									<div class="section-container" id="section-game">
+
+										<div class="about-header" id="next-event-details-container">
+											<h6>
+												Next game starting in: <span id="time-until-next-game">No scheduled games</span>
+											</h6>
+										</div>
+
+										<div class="game-section" id="game-board">
+										</div>
+
+									</div>
+
+								</div>
+							</div>
+
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<script type="text/javascript">
+			// Setup the WebSocket connection and start the player
+			var client = new WebSocket( 'ws://172.19.59.128:8084' );
+			var canvas = document.getElementById('videoCanvas');
+			var player = new jsmpeg(client, {canvas:canvas});
+		</script>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+	</body>
+
+</html>
